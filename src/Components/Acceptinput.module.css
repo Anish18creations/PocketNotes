@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,600&display=swap');
+
+.popup {
+    position: absolute;
+    left: 27vw;
+    top: 30vh;
+    width: 740px;
+    height: 317px;
+    border: 2px solid #CCCCCC;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.title {
+    position: absolute;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 46px;
+    letter-spacing: 0.035em;
+    text-align: left;
+    color: #000000;
+    top: 5vh;
+    left: 5vw;
+}
+
+.gn {
+    position: absolute;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 44px;
+    letter-spacing: 0.035em;
+    text-align: left;
+    color: #000000;
+    left: 5vw;
+    top: 12vh;
+}
+
+.cc {
+    position: absolute;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 44px;
+    letter-spacing: 0.035em;
+    text-align: left;
+    color: #000000;
+    left: 5vw;
+    bottom: 8vh;
+}
+
+.text {
+    position: absolute;
+    left: 16vw;
+    top: 12.5vh;
+    border-radius: 22px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #CCCCCC;
+    width: 23vw;
+    height: 36px;
+}
+
+input[type="text"]::placeholder {
+    position: absolute;
+    left: 1.4vw;
+    bottom: 9px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 37px;
+    letter-spacing: 0.035em;
+    text-align: left;
+    color: #979797;
+}
+
+.violet {
+    position: absolute;
+    border-radius: 50%;
+    background: #B38BFA;
+    width: 40px;
+    height: 40px;
+    left: 18vw;
+    bottom: 8vh;
+}
+
+.crtbtn {
+    position: absolute;
+    width: 154px;
+    height: 38px;
+    bottom: 2vh;
+    right: 2vw;
+    border-radius: 11px;
+    background: #001F8B;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0.035em;
+    text-align: left;
+    color: #FFFFFF;
+    text-align: center;
+}

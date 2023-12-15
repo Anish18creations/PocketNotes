@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar{
+  position: absolute;
+  width: 30vw;
+  height: 100vh;
+  background: white;
+  left:0%;
+}
+
+.mainbar{
+  position: absolute;
+  width: 70vw;
+  height: 100vh;
+  background: #DAE5F5;
+  left:30%;
+}
