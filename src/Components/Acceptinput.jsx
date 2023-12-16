@@ -55,7 +55,7 @@ function Acceptinput(props) {
       let a = localStorage.getItem('index');
       let b = JSON.parse(a);
       b = b.map((element) => element + 1);
-      g = b[0] + color + initials + g;
+      g = b[0] + color + initials.toUpperCase() + g;
       localStorage.setItem(b[0], notesapp);
       localStorage.setItem('index', JSON.stringify(b));
 
@@ -104,6 +104,7 @@ function Acceptinput(props) {
   }
 
   return (props.trigger) ? (
+    <div className={styles.popupcontainer}>
     <div className={styles.popup}>
 
       <div className={styles.title}>Create New group</div><br />
@@ -111,18 +112,19 @@ function Acceptinput(props) {
       <div className={styles.cc}>Choose colour</div><br />
       <input type='text' className={styles.text} placeholder='Enter group name' id='groupname' />
       <div className={styles.violet} onClick={() => { setcolor('#B38BFA') }} />
-      <div className={styles.violet} style={{ position: 'absolute', left: '21vw', background: '#FF79F2' }}
+      <div className={styles.violet} style={{ position: 'absolute', left: '26vw', background: '#FF79F2' }}
         onClick={() => { setcolor('#FF79F2') }} />
-      <div className={styles.violet} style={{ position: 'absolute', left: '24vw', background: '#43E6FC' }}
+      <div className={styles.violet} style={{ position: 'absolute', left: '30vw', background: '#43E6FC' }}
         onClick={() => { setcolor('#43E6FC') }} />
-      <div className={styles.violet} style={{ position: 'absolute', left: '27vw', background: '#F19576' }}
+      <div className={styles.violet} style={{ position: 'absolute', left: '34vw', background: '#F19576' }}
         onClick={() => { setcolor('#F19576') }} />
-      <div className={styles.violet} style={{ position: 'absolute', left: '30vw', background: '#0047FF' }}
+      <div className={styles.violet} style={{ position: 'absolute', left: '38vw', background: '#0047FF' }}
         onClick={() => { setcolor('#0047FF') }} />
-      <div className={styles.violet} style={{ position: 'absolute', left: '33vw', background: '#6691FF' }}
+      <div className={styles.violet} style={{ position: 'absolute', left: '42vw', background: '#6691FF' }}
         onClick={() => { setcolor('#6691FF') }} />
       <div className={styles.crtbtn} onClick={() => create()}><p style={{ marginTop: '2px' , cursor:'pointer' }}>
         Create</p></div>
+    </div>
     </div>
   ) : "";
 }

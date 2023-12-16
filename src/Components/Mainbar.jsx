@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../Styles/Sidebar.module.css';
+import styles from '../Styles/Mainbar.module.css';
 import Acceptinput from './Acceptinput';
 import Bg from '../Assets/Bg.png';
 import Lock from '../Assets/Lock.png';
@@ -7,7 +7,7 @@ import disable from '../Assets/disable.png';
 import Enable from '../Assets/Enable.png';
 import Ellipse from '../Assets/Ellipse.png';
 
-function Sidebar() {
+function Mainbar() {
 
   let [buttonpopup, setbuttonpopup] = useState(false);
   let [condition, setcondition] = useState(true);
@@ -129,7 +129,7 @@ function Sidebar() {
         +</div></div>
       {condition ?
         <div className={styles.scrollbar} style={{
-          position: 'absolute', top: '15vh', left: '3vw', width: '20vw', height: '70vh', overflowX: 'hidden',
+          position: 'absolute', top: '15vh', width: '28vw', height: '70vh', overflowX: 'hidden',
           overflowY: 'scroll', outline: 'none'
         }}>
 
@@ -140,7 +140,7 @@ function Sidebar() {
               <span className={styles.user1} style={{ background: display.substring(1, 8), borderRadius: '50%' }}>
               {display.substring(8, 10)}
               </span>&emsp;
-              <span className={styles.user} style={{ color: 'black', fontSize: '25px' }}>
+              <span className={styles.user} style={{ color: 'black', fontSize: '24px' }}>
               {display.substring(10, display.length)}
               </span>
     
@@ -165,36 +165,37 @@ function Sidebar() {
         :
         <div style={{ position: 'absolute', left: '28vw', width: '72vw', height: '100vh', background: '#DAE5F5' }}>
           <div style={{
-            position: 'absolute', bottom: '4vh', width: '71.8vw', height: '30vh', background: '#001F8B'
-            , borderStyle: 'solid', borderWidth: '1px', borderRadius: '9px', borderColor: '#001F8B'
+            position: 'absolute', bottom: '4vh', width: '66.8vw', height: '30vh', background: '#001F8B'
+            , borderStyle: 'solid', borderWidth: '1px', borderRadius: '9px', borderColor: '#001F8B' , padding:'1vw'
           }}>
             <textarea style={{
-              position: 'absolute', top: '2vh', left: '2vw', width: '68vw', height: '25vh',
-              background: 'white', borderStyle: 'solid', borderWidth: '1px', borderRadius: '9px', borderColor: '#CCCCCC'
-            }}
+              position: 'absolute', width: '63.5vw', height: '24vh',
+              background: 'white', borderStyle: 'solid', borderWidth: '1px', borderRadius: '9px', borderColor: '#CCCCCC',
+              cursor:'default'}}
               placeholder='Enter your text here...........' id='Note' onChange={(e) => { handlechange(e) }} >
 
             </textarea>
           </div>
-          <img src={image} alt='abc' style={{ position: 'absolute', right: '5vh', bottom: '9vh' }}
+          <img src={image} alt='abc' style={{ position: 'absolute', right: '5vw', bottom: '9vh' , cursor:'pointer' }}
             onClick={() => storenotes()}></img>
         </div>
       }
       {shownotes ?
         <>
-          <div style={{ position: 'absolute', left: '28vw', width: '72vw', height: '9vh', background: '#001F8B' }} />
+          <div style={{ position: 'absolute', left: '28vw', width: '72vw', height: '9vh', background: '#001F8B' ,
+          cursor:'default'}} />
 
-          <div style={{ position: 'absolute', left: '34vw', color: 'white', width: '20vw', top: '2vh' }}
+          <div style={{ position: 'absolute', left: '34vw', color: 'white', width: '20vw', top: '2vh' , cursor:'default' }}
             className={styles.heading}>{title}</div>
           <div style={{
-            position: 'absolute', left: '30vw', width: '5vh', height: '5vh', background: bgcolor, top: '1.1vh',
-            borderRadius: '50%'
+            position: 'absolute', left: '30vw', width: '3vw', height: '5vh', background: bgcolor, top: '1.5vh',
+            borderRadius: '50%' , cursor:'default' , padding:'2px' 
           }}>
-            <div style={{ position: 'absolute', color: 'white', top: '1.2vh', left: '0.2vw' }} className={styles.initial}
+            <div style={{ position: 'absolute', color: 'white', top: '1.2vh', left: '0.5vw' }} className={styles.initial}
             >{initials}</div>
           </div>
           <div style={{
-            position: 'absolute', left: '30vw', top: '9vh', width: '70vw', height: '56vh',
+            position: 'absolute', left: '30vw', top: '9vh', width: '70vw', height: '50vh',
             overflowX: 'hidden', overflowY: 'scroll', outline: 'none'
           }}>
             {con.map((con) => (
@@ -206,9 +207,9 @@ function Sidebar() {
                   <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;
-                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                    &emsp;
-                    &emsp;&emsp;&emsp;&emsp;
+                    
+                    
+                    
                     <span className={styles.dateandtime}>{con.substring(con.length - 20, con.length - 9)}</span>&emsp;
                     &emsp;
                     <span><img src={Ellipse} alt='' /></span>&emsp;&emsp;
@@ -228,4 +229,4 @@ function Sidebar() {
   )
 }
 
-export default Sidebar;
+export default Mainbar;
