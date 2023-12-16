@@ -51,6 +51,26 @@
     text-align: center;
     width: 16px;
     color: #FFFFFF;
+    justify-content: center;
+}
+
+.user1 {
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 44px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-align: center;
+    width: 26px;
+    height: 16px;
+    color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    padding: 13px;
+}
+
+.onhover:hover{
+    background: #2F2F2F2B;
+    border-radius: 16px;
 }
 
 .bg{

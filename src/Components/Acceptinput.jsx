@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import styles from './Acceptinput.module.css';
+import styles from '../Styles/Acceptinput.module.css';
 
 function Acceptinput(props) {
 
   let [color, setcolor] = useState("");
-  let [count , setcount] = useState(0);
+  let [count, setcount] = useState(0);
   //const [state, setState] = useState(localStorage.getItem('data'));
 
   const create = () => {
@@ -45,9 +45,9 @@ function Acceptinput(props) {
 
       initials = g.substring(0, 1) + initials;
       console.log(initials);
-      
-      
-        let notes = [];
+
+
+      let notes = [];
       let notesapp = JSON.stringify(notes);
       /*localStorage.setItem(count , notesapp);
       g = count + color + initials + g;*/
@@ -56,21 +56,21 @@ function Acceptinput(props) {
       let b = JSON.parse(a);
       b = b.map((element) => element + 1);
       g = b[0] + color + initials + g;
-      localStorage.setItem(b[0] , notesapp);
-      localStorage.setItem('index' ,JSON.stringify(b));
+      localStorage.setItem(b[0], notesapp);
+      localStorage.setItem('index', JSON.stringify(b));
 
       console.log(g);
       setcolor("");
-      
-      const interests = localStorage.getItem('Gn');
+
+      const interests = localStorage.getItem("Gn");
       console.log(interests);
       const data = JSON.parse(interests);
       console.log(data);
       data.push(g);
       let demo = JSON.stringify(data);
       localStorage.setItem("Gn", demo);
-      
-      
+
+
 
 
       /*let notes = [];
@@ -95,10 +95,10 @@ function Acceptinput(props) {
       data.push(g);
       let demo = JSON.stringify(data);
       localStorage.setItem("Gn", demo);*/
-      
+
 
       props.settrigger(false);
-      props.setshow(true);
+
     }
 
   }
@@ -121,7 +121,8 @@ function Acceptinput(props) {
         onClick={() => { setcolor('#0047FF') }} />
       <div className={styles.violet} style={{ position: 'absolute', left: '33vw', background: '#6691FF' }}
         onClick={() => { setcolor('#6691FF') }} />
-      <div className={styles.crtbtn} onClick={() => create()}><p style={{ marginTop: '2px' }}>Create</p></div>
+      <div className={styles.crtbtn} onClick={() => create()}><p style={{ marginTop: '2px' , cursor:'pointer' }}>
+        Create</p></div>
     </div>
   ) : "";
 }
