@@ -28,14 +28,15 @@ function Mainbar() {
     if (storedData) {
       setcondition(true);
       setdisplay(JSON.parse(storedData));
-      
     }
     else {
       const newarray = [];
       localStorage.setItem("Gn", JSON.stringify(newarray));
       let array = [0];
       localStorage.setItem("index", JSON.stringify(array));
-      }
+      const names = [" "];
+      localStorage.setItem("storename", JSON.stringify(names));
+    }
   }, []);
 
 
@@ -46,7 +47,7 @@ function Mainbar() {
     setshownotes(false);
     const interests = localStorage.getItem("Gn");
     setdisplay(JSON.parse(interests));
-    console.log('one');
+    //console.log('one');
   }
 
   /* const names = ["1#F19576WGWhatsapp Group"];
@@ -125,7 +126,7 @@ function Mainbar() {
   return (
     <div>
       <div className={styles.title}>Pocket Notes</div>
-      <div className={styles.addbtn} onClick={() => popupbox()}><div className={styles.btn} style={{cursor:'pointer'}}>
+      <div className={styles.addbtn} onClick={() => popupbox()}><div className={styles.btn} style={{ cursor: 'pointer' }}>
         +</div></div>
       {condition ?
         <div className={styles.scrollbar} style={{
@@ -136,14 +137,14 @@ function Mainbar() {
           {display.map((display) => (
 
             <div style={{ height: '11vh' }} className={styles.onhover} onClick={() => opennotes(display.substring(0, 1),
-              display.substring(1, 8), display.substring(8, 10),display.substring(10, display.length))}>&ensp;<br/>&nbsp;
+              display.substring(1, 8), display.substring(8, 10), display.substring(10, display.length))}>&ensp;<br />&nbsp;
               <span className={styles.user1} style={{ background: display.substring(1, 8), borderRadius: '50%' }}>
-              {display.substring(8, 10)}
+                {display.substring(8, 10)}
               </span>&emsp;
               <span className={styles.user} style={{ color: 'black', fontSize: '24px' }}>
-              {display.substring(10, display.length)}
+                {display.substring(10, display.length)}
               </span>
-    
+
             </div>
 
           ))}
@@ -165,37 +166,38 @@ function Mainbar() {
         :
         <div style={{ position: 'absolute', left: '28vw', width: '72vw', height: '100vh', background: '#DAE5F5' }}>
           <div style={{
-            position: 'absolute', bottom: '4vh', width: '66.8vw', height: '30vh', background: '#001F8B'
-            , borderStyle: 'solid', borderWidth: '1px', borderRadius: '9px', borderColor: '#001F8B' , padding:'1vw'
+            position: 'absolute', width: '69.8vw', height: '30vh', background: '#001F8B', bottom: '0vh'
+            , borderStyle: 'solid', borderWidth: '1px', borderRadius: '9px', borderColor: '#001F8B', padding: '1vw'
           }}>
             <textarea style={{
-              position: 'absolute', width: '63.5vw', height: '24vh',
+              position: 'absolute', width: '66.5vw', height: '24vh',
               background: 'white', borderStyle: 'solid', borderWidth: '1px', borderRadius: '9px', borderColor: '#CCCCCC',
-              cursor:'default'}}
+              cursor: 'default'
+            }}
               placeholder='Enter your text here...........' id='Note' onChange={(e) => { handlechange(e) }} >
 
             </textarea>
           </div>
-          <img src={image} alt='abc' style={{ position: 'absolute', right: '5vw', bottom: '9vh' , cursor:'pointer' }}
+          <img src={image} alt='abc' style={{ position: 'absolute', right: '2vw', bottom: '5vh', cursor: 'pointer' }}
             onClick={() => storenotes()}></img>
         </div>
       }
       {shownotes ?
         <>
-          <div style={{ position: 'absolute', left: '28vw', width: '72vw', height: '9vh', background: '#001F8B' ,
-          cursor:'default'}} />
-
-          <div style={{ position: 'absolute', left: '34vw', color: 'white', width: '20vw', top: '2vh' , cursor:'default' }}
-            className={styles.heading}>{title}</div>
           <div style={{
-            position: 'absolute', left: '30vw', width: '3vw', height: '5vh', background: bgcolor, top: '1.5vh',
-            borderRadius: '50%' , cursor:'default' , padding:'2px' 
-          }}>
-            <div style={{ position: 'absolute', color: 'white', top: '1.2vh', left: '0.5vw' }} className={styles.initial}
-            >{initials}</div>
+            position: 'absolute', left: '28vw', width: '72vw', height: '9vh', background: '#001F8B',
+            cursor: 'default'
+          }} />
+          <div>
+            <div style={{ position: 'absolute', left: '35vw', color: 'white', width: '20vw', top: '2vh', cursor: 'default' }}
+              className={styles.heading}>{title}</div>
+            <span style={{
+              position: 'absolute', left: '30vw', width: '3vw', height: '4vh', background: bgcolor, top: '1.5vh',
+              borderRadius: '50%', cursor: 'default', padding: '5px'
+            }} className={styles.initials}>{initials}</span>
           </div>
           <div style={{
-            position: 'absolute', left: '30vw', top: '9vh', width: '70vw', height: '50vh',
+            position: 'absolute', left: '30vw', top: '9vh', width: '70vw', height: '56vh',
             overflowX: 'hidden', overflowY: 'scroll', outline: 'none'
           }}>
             {con.map((con) => (
@@ -207,9 +209,9 @@ function Mainbar() {
                   <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;
-                    
-                    
-                    
+
+
+
                     <span className={styles.dateandtime}>{con.substring(con.length - 20, con.length - 9)}</span>&emsp;
                     &emsp;
                     <span><img src={Ellipse} alt='' /></span>&emsp;&emsp;

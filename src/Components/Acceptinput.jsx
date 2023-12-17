@@ -4,7 +4,7 @@ import styles from '../Styles/Acceptinput.module.css';
 function Acceptinput(props) {
 
   let [color, setcolor] = useState("");
-  let [count, setcount] = useState(0);
+  //let [count, setcount] = useState(0);
   //const [state, setState] = useState(localStorage.getItem('data'));
 
   const create = () => {
@@ -14,17 +14,32 @@ function Acceptinput(props) {
     let b = true;
     const w = g.split(" ");
 
+    let a = JSON.parse(localStorage.getItem("storename"));
+    console.log(a);
+    console.log(typeof(a));
+    for (let i = 0; i < a.length; i++) {
+      let name = a[i];
+      if (name == g) {
+          alert('This group name is already present , please try another group name!');
+          return;
+      }
+  }
+  a.push(g);
+  localStorage.setItem("storename",JSON.stringify(a));
+
+
     if (g == "") {
       alert('You need to enter a group name to proceed');
       b = false;
     }
-    else {
-      if (w.length == 1) {
-        alert('Your Group Name should have atleast 2 words!');
-        b = false;
-      }
-    }
+    
+    let initials;
+    let d = true;
 
+    if (w.length == 1) {
+     initials = g.substring(0,1) + " ";
+      d = false;
+    }
 
     if (color == "") {
       alert('You need to choose a color to proceed');
@@ -33,7 +48,8 @@ function Acceptinput(props) {
 
     if (b == true) {
 
-      let initials;
+      //let initials;
+      if (d == true){
       for (let index = 0; index < g.length - 1; index++) {
         let element = g.substring(index, index + 1);
         if (element == ' ') {
@@ -42,11 +58,10 @@ function Acceptinput(props) {
             break;
         }
       }
-
       initials = g.substring(0, 1) + initials;
+    }
+
       console.log(initials);
-
-
       let notes = [];
       let notesapp = JSON.stringify(notes);
       /*localStorage.setItem(count , notesapp);
@@ -65,7 +80,7 @@ function Acceptinput(props) {
       const interests = localStorage.getItem("Gn");
       console.log(interests);
       const data = JSON.parse(interests);
-      console.log(data);
+      console.log(typeof(data));
       data.push(g);
       let demo = JSON.stringify(data);
       localStorage.setItem("Gn", demo);
