@@ -32,7 +32,7 @@ function Mainbar() {
     else {
       const newarray = [];
       localStorage.setItem("Gn", JSON.stringify(newarray));
-      let array = [0];
+      let array = ['00'];
       localStorage.setItem("index", JSON.stringify(array));
       const names = [" "];
       localStorage.setItem("storename", JSON.stringify(names));
@@ -136,13 +136,13 @@ function Mainbar() {
 
           {display.map((display) => (
 
-            <div style={{ height: '11vh' }} className={styles.onhover} onClick={() => opennotes(display.substring(0, 1),
-              display.substring(1, 8), display.substring(8, 10), display.substring(10, display.length))}>&ensp;<br />&nbsp;
-              <span className={styles.user1} style={{ background: display.substring(1, 8), borderRadius: '50%' }}>
-                {display.substring(8, 10)}
+            <div style={{ height: '11vh' }} className={styles.onhover} onClick={() => opennotes(display.substring(0, 2),
+              display.substring(2, 9), display.substring(9, 11), display.substring(11, display.length))}>&ensp;<br />&nbsp;
+              <span className={styles.user1} style={{ background: display.substring(2, 9), borderRadius: '50%' }}>
+                {display.substring(9, 11)}
               </span>&emsp;
               <span className={styles.user} style={{ color: 'black', fontSize: '24px' }}>
-                {display.substring(10, display.length)}
+                {display.substring(11, display.length)}
               </span>
 
             </div>

@@ -14,19 +14,6 @@ function Acceptinput(props) {
     let b = true;
     const w = g.split(" ");
 
-    let a = JSON.parse(localStorage.getItem("storename"));
-    console.log(a);
-    console.log(typeof(a));
-    for (let i = 0; i < a.length; i++) {
-      let name = a[i];
-      if (name == g) {
-          alert('This group name is already present , please try another group name!');
-          return;
-      }
-  }
-  a.push(g);
-  localStorage.setItem("storename",JSON.stringify(a));
-
 
     if (g == "") {
       alert('You need to enter a group name to proceed');
@@ -48,18 +35,25 @@ function Acceptinput(props) {
 
     if (b == true) {
 
-      //let initials;
       if (d == true){
-      for (let index = 0; index < g.length - 1; index++) {
-        let element = g.substring(index, index + 1);
-        if (element == ' ') {
-          initials = g.substring(index + 1, index + 2);
-          if (initials.isLetter)
-            break;
-        }
-      }
-      initials = g.substring(0, 1) + initials;
+      const firstCharSecondWord = w[1].charAt(0);
+      console.log(firstCharSecondWord); 
+      initials = g.substring(0, 1) + firstCharSecondWord;
+      console.log(initials);
     }
+
+    let a = JSON.parse(localStorage.getItem("storename"));
+    console.log(a);
+    console.log(typeof(a));
+    for (let i = 0; i < a.length; i++) {
+      let name = a[i];
+      if (name == g) {
+          alert('This group name is already present , please try another group name!');
+          return;
+      }
+  }
+  a.push(g);
+  localStorage.setItem("storename",JSON.stringify(a));
 
       console.log(initials);
       let notes = [];
@@ -67,9 +61,13 @@ function Acceptinput(props) {
       /*localStorage.setItem(count , notesapp);
       g = count + color + initials + g;*/
       //setcount(String(Number(count)+1));
-      let a = localStorage.getItem('index');
-      let b = JSON.parse(a);
-      b = b.map((element) => element + 1);
+      let c = localStorage.getItem('index');
+      let b = JSON.parse(c);
+      b = b.map((element) => Number(element) + 1);
+      if (b[0]<10)
+      b[0] = "0" + b[0];
+      else
+      b[0] = String(b[0]);
       g = b[0] + color + initials.toUpperCase() + g;
       localStorage.setItem(b[0], notesapp);
       localStorage.setItem('index', JSON.stringify(b));
