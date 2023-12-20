@@ -89,16 +89,16 @@ function Acceptinput(props) {
     }
 
   }
-  
+
   return (props.trigger) ?
     (
       <>
         <div className={styles.popupcontainer} onClick={() => props.settrigger(false)}></div>
-        <div className={styles.popupcontainer} style={{ top: '30vh', width: '27%', height: '50%' }}
+        <div className={styles.popupcontainer} style={{ top: '30vh', width: '27%', height: '53%' }}
           onClick={() => props.settrigger(false)}></div>
-        <div className={styles.popupcontainer} style={{ top: '30vh', left: '82vw', width: '18%', height: '50%' }}
+        <div className={styles.popupcontainer} style={{ top: '30vh', left: '81.5vw', width: '19%', height: '53%' }}
           onClick={() => props.settrigger(false)}></div>
-        <div className={styles.popupcontainer} style={{ top: '79.9vh' }} onClick={() => props.settrigger(false)}></div>
+        <div className={styles.popupcontainer} style={{ top: '82.95vh' }} onClick={() => props.settrigger(false)}></div>
         <div className={styles.popup}>
 
           <div className={styles.title}>Create New group</div><br />

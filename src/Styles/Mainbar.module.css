@@ -27,7 +27,7 @@
     font-family: 'Roboto Flex', sans-serif;
     font-size: 70px;
     font-weight: 500;
-    line-height: 68px;
+    line-height: 58px;
     letter-spacing: 0.02em;
     text-align: left;
     color: #FFFFFF;
@@ -35,8 +35,8 @@
 
 .btn {
     position: absolute;
-    padding: 0px;
-    margin-left: 13px;
+    padding: 2px;
+    margin-left: 11px;
 }
 
 .bar::-webkit-scrollbar {
