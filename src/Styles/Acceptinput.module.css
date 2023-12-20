@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,600&display=swap');
 
-.popup{
+.popup {
     position: absolute;
     left: 27vw;
     top: 30vh;
@@ -11,12 +11,12 @@
     border-radius: 6px;
 }
 
-.popupcontainer{
+.popupcontainer {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 30%;
     background-color: rgba(47, 47, 47, 0.75);
     display: flex;
     justify-content: center;

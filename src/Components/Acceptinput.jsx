@@ -4,8 +4,6 @@ import styles from '../Styles/Acceptinput.module.css';
 function Acceptinput(props) {
 
   let [color, setcolor] = useState("");
-  //let [count, setcount] = useState(0);
-  //const [state, setState] = useState(localStorage.getItem('data'));
 
   const create = () => {
 
@@ -13,6 +11,11 @@ function Acceptinput(props) {
     let g = document.getElementById('groupname').value;
     let b = true;
     const w = g.split(" ");
+
+    if (g == "" && color == "") {
+      alert("Please type a group name and choose a colour to proceed");
+      return;
+    }
 
 
     if (g == "") {
@@ -58,9 +61,6 @@ function Acceptinput(props) {
       console.log(initials);
       let notes = [];
       let notesapp = JSON.stringify(notes);
-      /*localStorage.setItem(count , notesapp);
-      g = count + color + initials + g;*/
-      //setcount(String(Number(count)+1));
       let c = localStorage.getItem('index');
       let b = JSON.parse(c);
       b = b.map((element) => Number(element) + 1);
@@ -83,63 +83,44 @@ function Acceptinput(props) {
       let demo = JSON.stringify(data);
       localStorage.setItem("Gn", demo);
 
-
-
-
-      /*let notes = [];
-      let notesapp = JSON.stringify(notes);
-      /*localStorage.setItem(count , notesapp);
-      g = count + color + initials + g;*/
-      //setcount(String(Number(count)+1));
-      /*let a = localStorage.getItem('index');
-      let b = JSON.parse(a);
-      b = b.map((element) => element + 1);
-      g = b[0] + color + initials + g;
-      localStorage.setItem(b[0] , notesapp);
-      localStorage.setItem('index' ,JSON.stringify(b));
-
-      console.log(g);
-      setcolor("");
-      
-      const interests = localStorage.getItem('Gn');
-      console.log(interests);
-      const data = JSON.parse(interests);
-      console.log(data);
-      data.push(g);
-      let demo = JSON.stringify(data);
-      localStorage.setItem("Gn", demo);*/
-
-
       props.settrigger(false);
+      props.setstorein(!(props.storein));
 
     }
 
   }
+  
+  return (props.trigger) ?
+    (
+      <>
+        <div className={styles.popupcontainer} onClick={() => props.settrigger(false)}></div>
+        <div className={styles.popupcontainer} style={{ top: '30vh', width: '27%', height: '50%' }}
+          onClick={() => props.settrigger(false)}></div>
+        <div className={styles.popupcontainer} style={{ top: '30vh', left: '82vw', width: '18%', height: '50%' }}
+          onClick={() => props.settrigger(false)}></div>
+        <div className={styles.popupcontainer} style={{ top: '79.9vh' }} onClick={() => props.settrigger(false)}></div>
+        <div className={styles.popup}>
 
-  return (props.trigger) ? (
-    <div className={styles.popupcontainer}>
-      <div className={styles.popup}>
-
-        <div className={styles.title}>Create New group</div><br />
-        <div className={styles.gn}>Group Name</div><br />
-        <div className={styles.cc}>Choose colour</div><br />
-        <input type='text' className={styles.text} placeholder='Enter group name' id='groupname' />
-        <div className={styles.violet} onClick={() => { setcolor('#B38BFA') }} />
-        <div className={styles.violet} style={{ position: 'absolute', left: '26vw', background: '#FF79F2' }}
-          onClick={() => { setcolor('#FF79F2') }} />
-        <div className={styles.violet} style={{ position: 'absolute', left: '30vw', background: '#43E6FC' }}
-          onClick={() => { setcolor('#43E6FC') }} />
-        <div className={styles.violet} style={{ position: 'absolute', left: '34vw', background: '#F19576' }}
-          onClick={() => { setcolor('#F19576') }} />
-        <div className={styles.violet} style={{ position: 'absolute', left: '38vw', background: '#0047FF' }}
-          onClick={() => { setcolor('#0047FF') }} />
-        <div className={styles.violet} style={{ position: 'absolute', left: '42vw', background: '#6691FF' }}
-          onClick={() => { setcolor('#6691FF') }} />
-        <div className={styles.crtbtn} onClick={() => create()}><p style={{ marginTop: '2px', cursor: 'pointer' }}>
-          Create</p></div>
-      </div>
-    </div>
-  ) : "";
+          <div className={styles.title}>Create New group</div><br />
+          <div className={styles.gn}>Group Name</div><br />
+          <div className={styles.cc}>Choose colour</div><br />
+          <input type='text' className={styles.text} placeholder='Enter group name' id='groupname' />
+          <div className={styles.violet} onClick={() => { setcolor('#B38BFA') }} />
+          <div className={styles.violet} style={{ position: 'absolute', left: '26vw', background: '#FF79F2' }}
+            onClick={() => { setcolor('#FF79F2') }} />
+          <div className={styles.violet} style={{ position: 'absolute', left: '30vw', background: '#43E6FC' }}
+            onClick={() => { setcolor('#43E6FC') }} />
+          <div className={styles.violet} style={{ position: 'absolute', left: '34vw', background: '#F19576' }}
+            onClick={() => { setcolor('#F19576') }} />
+          <div className={styles.violet} style={{ position: 'absolute', left: '38vw', background: '#0047FF' }}
+            onClick={() => { setcolor('#0047FF') }} />
+          <div className={styles.violet} style={{ position: 'absolute', left: '42vw', background: '#6691FF' }}
+            onClick={() => { setcolor('#6691FF') }} />
+          <div className={styles.crtbtn} onClick={() => create()}><p style={{ marginTop: '2px', cursor: 'pointer' }}>
+            Create</p></div>
+        </div>
+      </>
+    ) : "";
 }
 
 export default Acceptinput;

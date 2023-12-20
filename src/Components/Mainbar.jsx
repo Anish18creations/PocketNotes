@@ -20,26 +20,36 @@ function Mainbar() {
   let [initials, setinitials] = useState("");
   let typednote;
   let [display, setdisplay] = useState([]);
-  //let [count, setcount] = useState(0);
-  let storedData;
+  let [count, setcount] = useState(true);
+  let storedData = {};
+
+
 
   useEffect(() => {
-    storedData = localStorage.getItem("Gn");
-    if (storedData) {
-      setcondition(true);
-      setdisplay(JSON.parse(storedData));
+
+    const getNotes = () => {
+      storedData = localStorage.getItem("Gn");
+      if (storedData !== null) {
+        setcondition(true);
+        setdisplay(JSON.parse(storedData));
+      }
+      else {
+        const newarray = [];
+        localStorage.setItem("Gn", JSON.stringify(newarray));
+        let array = ['00'];
+        localStorage.setItem("index", JSON.stringify(array));
+        const names = [" "];
+        localStorage.setItem("storename", JSON.stringify(names));
+      }
     }
-    else {
-      const newarray = [];
-      localStorage.setItem("Gn", JSON.stringify(newarray));
-      let array = ['00'];
-      localStorage.setItem("index", JSON.stringify(array));
-      const names = [" "];
-      localStorage.setItem("storename", JSON.stringify(names));
-    }
+    getNotes();
   }, []);
 
-
+  useEffect(() => {
+    let stored = localStorage.getItem("Gn");
+    setcondition(true);
+    setdisplay(JSON.parse(stored));
+  }, [count]);
 
   const popupbox = () => {
     setbuttonpopup(true);
@@ -47,25 +57,8 @@ function Mainbar() {
     setshownotes(false);
     const interests = localStorage.getItem("Gn");
     setdisplay(JSON.parse(interests));
-    //console.log('one');
   }
 
-  /* const names = ["1#F19576WGWhatsapp Group"];
-   let groupname = JSON.stringify(names);
-   
-   localStorage.setItem("Gn", groupname);
- 
-   const notes = ["This is a sample note"];
-   let notesapp = JSON.stringify(notes);
- 
-   let array = [1];
-   localStorage.setItem("index",JSON.stringify(array));
-   localStorage.setItem(array[0],notesapp);*/
-
-  /* const interests = localStorage.getItem('Gn');
- 
-   setdisplay(JSON.parse(interests));*/
-  //console.log(typeof (display));
 
   const handlechange = (e) => {
     if (e.target.value == '')
@@ -86,7 +79,6 @@ function Mainbar() {
     setbgcolor(a);
     setinitials(b);
     settitle(c);
-    //use a state to show the group name,initials and bg color
     setshownotes(true);
   }
 
@@ -101,10 +93,6 @@ function Mainbar() {
 
     let group = JSON.parse(localStorage.getItem(iid));
     console.log(group);
-    /*let data = ({group});
-    console.log(data);*/
-
-
 
     const today = new Date();
     const month = today.toLocaleString("en-US", { month: "short" });
@@ -225,7 +213,7 @@ function Mainbar() {
         :
         ""
       }
-      <Acceptinput trigger={buttonpopup} settrigger={setbuttonpopup} />
+      <Acceptinput trigger={buttonpopup} settrigger={setbuttonpopup} storein={count} setstorein={setcount} />
 
     </div>
   )
